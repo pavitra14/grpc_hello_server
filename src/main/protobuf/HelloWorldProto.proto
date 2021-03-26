@@ -1,0 +1,15 @@
+syntax="proto3";
+package in.pbehre.proto;
+
+message HelloRequest {
+  string name=1;
+}
+message HelloResponse {
+  string welcome_message=1;
+}
+service HelloWorld {
+  rpc sayHello(HelloRequest) returns (HelloResponse);
+  rpc clientStream(stream HelloRequest) returns (HelloResponse);
+  rpc serverStream(HelloRequest) returns (stream HelloResponse);
+  rpc streamHello(stream HelloRequest) returns (stream HelloResponse);
+}
